@@ -41,6 +41,30 @@ At 50,000 iterations in the fixed experiment, vanilla CFR reaches approximately
 0.0010 chips/hand exploitability and CFR+ reaches approximately 0.00048. These are
 deterministic full-tree results, not averages selected from favorable random seeds.
 
+## Beginner Hold'em lab
+
+Version 0.2 adds a separate educational preflop lab. It must not be confused
+with the Kuhn equilibrium solver: the opening charts are simplified six-max
+defaults rather than policies produced by CFR.
+
+The equity simulator samples legal opponent hole cards and five-card boards
+without replacement from a 52-card deck. It evaluates the best five-card hand
+available from seven cards, splits tied pots fractionally, uses a user-visible
+random seed, and reports a normal-approximation 95% interval for mean pot share.
+The hand evaluator is intentionally implemented in the repository so its ranking
+logic can be audited and tested.
+
+For a call of `C` into a pot of `P`, break-even equity is `C / (P + C)`. The
+interface can add a user-selected safety margin for estimation uncertainty. Its
+raise calculation is a one-street scenario model: one opponent either folds or
+calls the same additional investment. It exposes fold probability, bet size,
+and equity when called because a raise cannot be evaluated from hole cards alone.
+
+The lab covers every one of the 169 canonical preflop starting-hand classes. It
+does not cover every possible Hold'em decision. Missing elements include stack
+depth, rake, antes, tournaments, opponent range updates, reraises, future-street
+realization, postflop bet trees, and equilibrium solutions for no-limit Hold'em.
+
 ## Limitations
 
 Kuhn poker is not Texas Hold'em. It has three cards, a single bet size, and a tiny

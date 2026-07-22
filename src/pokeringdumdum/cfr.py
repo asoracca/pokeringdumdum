@@ -50,6 +50,7 @@ class CFRTrainer:
         self.averaging_delay = averaging_delay
         self.info_sets: dict[InfoSetKey, InfoSet] = {}
         self.iterations = 0
+        self.terminal_visits = 0
 
     def train(self, iterations: int) -> Policy:
         if iterations < 1:
@@ -99,6 +100,7 @@ class CFRTrainer:
         regret_deltas: dict[InfoSetKey, list[float]],
     ) -> float:
         if is_terminal(history):
+            self.terminal_visits += 1
             return terminal_utility(cards, history)
 
         player = acting_player(history)
