@@ -6,8 +6,10 @@ from pokeringdumdum.evaluation import expected_value, exploitability
 
 class SolverTests(unittest.TestCase):
     def test_average_policy_is_normalized(self):
-        policy = CFRTrainer("cfr").train(100)
+        trainer = CFRTrainer("cfr")
+        policy = trainer.train(100)
         self.assertEqual(len(policy), 12)
+        self.assertGreater(trainer.terminal_visits, 0)
         for probabilities in policy.values():
             self.assertAlmostEqual(sum(probabilities), 1.0)
             self.assertTrue(all(0.0 <= value <= 1.0 for value in probabilities))

@@ -45,3 +45,44 @@ family of equilibria, so exact policy mixtures may differ while remaining sound.
 
 Read [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) for the game rules, regret update,
 exact best-response method, metric definitions, and limitations.
+
+## Beginner Texas Hold'em preflop lab
+
+The optional browser app is deliberately separate from the Kuhn equilibrium
+solver. It provides:
+
+- all 169 starting-hand classes in simplified six-max opening charts;
+- tight, balanced, and loose chart settings;
+- a chart quiz for learning positions;
+- seeded Monte Carlo equity against random or selected opening ranges;
+- one to five opponents and uncertainty intervals;
+- pot-odds decisions with an adjustable safety margin;
+- bet-size, fold-equity, and stylized raise-EV experiments.
+
+```bash
+python -m pip install -e ".[dev,app]"
+streamlit run app.py
+```
+
+The app does **not** call every poker action “optimal.” Opening charts are
+educational defaults. A call recommendation compares estimated equity with pot
+odds, while a raise requires explicit assumptions about opponent folds and
+equity when called. It does not yet model ranges changing after actions,
+reraises, stack-to-pot ratios, tournaments, rake, or postflop play.
+
+## External-sampling MCCFR study
+
+The research track also includes a seeded external-sampling MCCFR implementation.
+It compares 20 independent sampled runs with deterministic full-tree CFR+ using
+exact Kuhn exploitability, convergence intervals, terminal visits, and wall time.
+
+```bash
+python run_mccfr_study.py
+```
+
+Outputs are written to `data/mccfr/`. See
+[`docs/EXTERNAL_SAMPLING.md`](docs/EXTERNAL_SAMPLING.md) for the algorithm,
+experimental design, and interpretation limits. The
+[recorded results](docs/MCCFR_RESULTS.md) show that full-tree CFR+ remains more
+efficient on tiny Kuhn poker. The sampled algorithm is being validated here
+before it is transferred to the larger Leduc game.
