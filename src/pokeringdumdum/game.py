@@ -32,7 +32,11 @@ def terminal_utility_player_zero(cards: tuple[int, int], history: str) -> float:
     """Return player zero's net payoff for a terminal history."""
     if history not in TERMINAL_HISTORIES:
         raise ValueError(f"history is not terminal: {history!r}")
-    if cards[0] == cards[1] or any(card not in CARDS for card in cards):
+    if (
+        len(cards) != 2
+        or cards[0] == cards[1]
+        or any(card not in CARDS for card in cards)
+    ):
         raise ValueError(f"invalid private cards: {cards!r}")
 
     if history == "bp":
@@ -42,3 +46,10 @@ def terminal_utility_player_zero(cards: tuple[int, int], history: str) -> float:
 
     stake = 1.0 if history == "pp" else 2.0
     return stake if cards[0] > cards[1] else -stake
+
+
+def legal_actions(history: str) -> tuple[str, ...]:
+    if is_terminal(history):
+        return ()
+    acting_player(history)
+    return ACTIONS

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass
 from itertools import product
 
@@ -21,6 +22,7 @@ class ExploitabilityReport:
 
 def expected_value(policy: Policy) -> float:
     """Return exact expected utility for player zero across all six deals."""
+    validate_policy(policy)
     total = sum(_history_value(cards, "", policy) for cards in DEALS)
     return total / len(DEALS)
 
@@ -74,3 +76,15 @@ def exploitability(policy: Policy) -> ExploitabilityReport:
         nash_conv=nash_conv,
         exploitability=nash_conv / 2.0,
     )
+
+
+def validate_policy(policy: Policy) -> None:
+    """Missing information sets retain the documented uniform-policy default."""
+    valid = set(_information_sets(0) + _information_sets(1))
+    for key, probabilities in policy.items():
+        if key not in valid or len(probabilities) != 2:
+            raise ValueError("invalid information set or action count")
+        if any(not math.isfinite(p) or p < 0 or p > 1 for p in probabilities):
+            raise ValueError("probabilities must be finite and within [0, 1]")
+        if not math.isclose(sum(probabilities), 1.0, abs_tol=1e-10):
+            raise ValueError("probabilities must sum to one")
