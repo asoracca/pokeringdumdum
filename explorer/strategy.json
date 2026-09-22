@@ -1,0 +1,315 @@
+{
+  "version": 1,
+  "game": "kuhn",
+  "input_kind": "synthetic",
+  "algorithm": "cfr_plus",
+  "iterations": 10000,
+  "cards": {
+    "0": "J",
+    "1": "Q",
+    "2": "K"
+  },
+  "deals": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      1
+    ]
+  ],
+  "states": {
+    "": {
+      "terminal": false,
+      "player": 0,
+      "actions": [
+        "p",
+        "b"
+      ],
+      "labels": [
+        "Check",
+        "Bet"
+      ]
+    },
+    "p": {
+      "terminal": false,
+      "player": 1,
+      "actions": [
+        "p",
+        "b"
+      ],
+      "labels": [
+        "Check",
+        "Bet"
+      ]
+    },
+    "pp": {
+      "terminal": true,
+      "payoffs": {
+        "0,1": -1.0,
+        "0,2": -1.0,
+        "1,0": 1.0,
+        "1,2": -1.0,
+        "2,0": 1.0,
+        "2,1": 1.0
+      }
+    },
+    "pb": {
+      "terminal": false,
+      "player": 0,
+      "actions": [
+        "p",
+        "b"
+      ],
+      "labels": [
+        "Fold",
+        "Call"
+      ]
+    },
+    "pbp": {
+      "terminal": true,
+      "payoffs": {
+        "0,1": -1.0,
+        "0,2": -1.0,
+        "1,0": -1.0,
+        "1,2": -1.0,
+        "2,0": -1.0,
+        "2,1": -1.0
+      }
+    },
+    "pbb": {
+      "terminal": true,
+      "payoffs": {
+        "0,1": -2.0,
+        "0,2": -2.0,
+        "1,0": 2.0,
+        "1,2": -2.0,
+        "2,0": 2.0,
+        "2,1": 2.0
+      }
+    },
+    "b": {
+      "terminal": false,
+      "player": 1,
+      "actions": [
+        "p",
+        "b"
+      ],
+      "labels": [
+        "Fold",
+        "Call"
+      ]
+    },
+    "bp": {
+      "terminal": true,
+      "payoffs": {
+        "0,1": 1.0,
+        "0,2": 1.0,
+        "1,0": 1.0,
+        "1,2": 1.0,
+        "2,0": 1.0,
+        "2,1": 1.0
+      }
+    },
+    "bb": {
+      "terminal": true,
+      "payoffs": {
+        "0,1": -2.0,
+        "0,2": -2.0,
+        "1,0": 2.0,
+        "1,2": -2.0,
+        "2,0": 2.0,
+        "2,1": 2.0
+      }
+    }
+  },
+  "report": {
+    "profile_value_player_zero": -0.055560587260890804,
+    "best_response_value_player_zero": -0.0539878686712863,
+    "best_response_value_player_one": 0.056271826277755066,
+    "nash_conv": 0.0022839576064687672,
+    "exploitability": 0.0011419788032343836
+  },
+  "always_bet_call_report": {
+    "profile_value_player_zero": 0.0,
+    "best_response_value_player_zero": 0.3333333333333333,
+    "best_response_value_player_one": 0.3333333333333333,
+    "nash_conv": 0.6666666666666666,
+    "exploitability": 0.3333333333333333
+  },
+  "information_sets": [
+    {
+      "player": 0,
+      "card": 0,
+      "history": "",
+      "probabilities": [
+        0.7625092191557918,
+        0.2374907808442082
+      ],
+      "regrets": [
+        6.005203716947177,
+        1.5895613839016067
+      ]
+    },
+    {
+      "player": 0,
+      "card": 0,
+      "history": "pb",
+      "probabilities": [
+        0.9999999934433579,
+        6.556642102675387e-09
+      ],
+      "regrets": [
+        0.08333333333333333,
+        0.0
+      ]
+    },
+    {
+      "player": 0,
+      "card": 1,
+      "history": "",
+      "probabilities": [
+        0.9999998410754123,
+        1.5892458766788353e-07
+      ],
+      "regrets": [
+        0.24932370622451938,
+        0.0
+      ]
+    },
+    {
+      "player": 0,
+      "card": 1,
+      "history": "pb",
+      "probabilities": [
+        0.4281806892889056,
+        0.5718193107110944
+      ],
+      "regrets": [
+        3.5263302114544297,
+        4.47976544887081
+      ]
+    },
+    {
+      "player": 0,
+      "card": 2,
+      "history": "",
+      "probabilities": [
+        0.29083001221908,
+        0.70916998778092
+      ],
+      "regrets": [
+        1.2412308652772819,
+        3.3331198470141934
+      ]
+    },
+    {
+      "player": 0,
+      "card": 2,
+      "history": "pb",
+      "probabilities": [
+        1.7190454354583337e-08,
+        0.9999999828095457
+      ],
+      "regrets": [
+        0.0,
+        0.25
+      ]
+    },
+    {
+      "player": 1,
+      "card": 0,
+      "history": "b",
+      "probabilities": [
+        0.9999999900009999,
+        9.999000099990002e-09
+      ],
+      "regrets": [
+        0.08333333333333333,
+        0.0
+      ]
+    },
+    {
+      "player": 1,
+      "card": 0,
+      "history": "p",
+      "probabilities": [
+        0.6665753221392051,
+        0.3334246778607949
+      ],
+      "regrets": [
+        7.093701989987369,
+        0.7455137689637426
+      ]
+    },
+    {
+      "player": 1,
+      "card": 1,
+      "history": "b",
+      "probabilities": [
+        0.6573519098865129,
+        0.342648090113487
+      ],
+      "regrets": [
+        5.423478032761729,
+        6.135226551160764
+      ]
+    },
+    {
+      "player": 1,
+      "card": 1,
+      "history": "p",
+      "probabilities": [
+        0.9999998656656073,
+        1.3433439264769172e-07
+      ],
+      "regrets": [
+        0.1403266620657925,
+        0.0
+      ]
+    },
+    {
+      "player": 1,
+      "card": 2,
+      "history": "b",
+      "probabilities": [
+        9.999000099990002e-09,
+        0.9999999900009999
+      ],
+      "regrets": [
+        0.0,
+        0.25
+      ]
+    },
+    {
+      "player": 1,
+      "card": 2,
+      "history": "p",
+      "probabilities": [
+        9.999000099990002e-09,
+        0.9999999900009999
+      ],
+      "regrets": [
+        0.0,
+        0.041666666666666664
+      ]
+    }
+  ]
+}

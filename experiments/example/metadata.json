@@ -1,0 +1,41 @@
+{
+  "config": {
+    "algorithms": [
+      "cfr",
+      "cfr_plus"
+    ],
+    "iterations": [
+      100,
+      1000,
+      10000
+    ],
+    "seconds": [
+      0.1,
+      0.5,
+      1.0
+    ]
+  },
+  "python": "3.12.14",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "seed": null,
+  "seed_note": "Full-tree algorithms are deterministic; no RNG.",
+  "input_kind": "synthetic exhaustive Kuhn game",
+  "revision": "8f3374e461de1982b5bf1dbead57b80675bd1b6b",
+  "dirty": true,
+  "clock": "perf_counter; training only; one-iteration overshoot",
+  "command_arguments": [
+    "python",
+    "-m",
+    "pokeringdumdum.study"
+  ],
+  "package_version": "0.1.0",
+  "source_sha256": {
+    "src/pokeringdumdum/__init__.py": "77ca40475d745c570e885758b8bf30c48d14c9aa3825c1af6ee283c498bd93a8",
+    "src/pokeringdumdum/cfr.py": "185b8ea5fdbaeff2e8cb5a6ad1cf11fc05664657672f81e3a799e612a40a4d34",
+    "src/pokeringdumdum/demo.py": "d9c171d4b7178222667777d755eaf4c4980f35a5941344174e767912e3ca067d",
+    "src/pokeringdumdum/evaluation.py": "2f45b8bbb329fbcb5452fd82b19d89cb5bf459cf5249f9900b900b55e0d43d45",
+    "src/pokeringdumdum/export.py": "5e7d62fe8b539d0fb462e12a5904bb7f9a61645836fcb31f7d7c57202deb8f35",
+    "src/pokeringdumdum/game.py": "5fd0f2f3ef2a1b92f6ee07de457a08f819028c96e27325ac6b7c6140c16ee274",
+    "src/pokeringdumdum/study.py": "52c875921f6ffc7267bd6d01ee5cfafaff4f1bb470d3a65d41079959a5fcf523"
+  }
+}

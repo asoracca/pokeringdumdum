@@ -1,0 +1,1 @@
+{"algorithms": ["cfr", "cfr_plus"], "iterations": [100, 1000, 10000], "seconds": [0.1, 0.5, 1.0]}

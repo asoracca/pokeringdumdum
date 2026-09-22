@@ -1,0 +1,560 @@
+{
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "game": {
+      "const": "kuhn"
+    },
+    "input_kind": {
+      "const": "synthetic"
+    },
+    "algorithm": {
+      "enum": [
+        "cfr",
+        "cfr_plus"
+      ]
+    },
+    "iterations": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "cards": {
+      "const": {
+        "0": "J",
+        "1": "Q",
+        "2": "K"
+      }
+    },
+    "deals": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "enum": [
+            0,
+            1,
+            2
+          ]
+        },
+        "minItems": 2,
+        "maxItems": 2
+      },
+      "minItems": 6,
+      "maxItems": 6,
+      "uniqueItems": true
+    },
+    "states": {
+      "type": "object",
+      "properties": {
+        "": {
+          "type": "object",
+          "properties": {
+            "terminal": {
+              "const": false
+            },
+            "player": {
+              "enum": [
+                0,
+                1
+              ]
+            },
+            "actions": {
+              "const": [
+                "p",
+                "b"
+              ]
+            },
+            "labels": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "required": [
+            "terminal",
+            "player",
+            "actions",
+            "labels"
+          ],
+          "additionalProperties": false
+        },
+        "p": {
+          "type": "object",
+          "properties": {
+            "terminal": {
+              "const": false
+            },
+            "player": {
+              "enum": [
+                0,
+                1
+              ]
+            },
+            "actions": {
+              "const": [
+                "p",
+                "b"
+              ]
+            },
+            "labels": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "required": [
+            "terminal",
+            "player",
+            "actions",
+            "labels"
+          ],
+          "additionalProperties": false
+        },
+        "b": {
+          "type": "object",
+          "properties": {
+            "terminal": {
+              "const": false
+            },
+            "player": {
+              "enum": [
+                0,
+                1
+              ]
+            },
+            "actions": {
+              "const": [
+                "p",
+                "b"
+              ]
+            },
+            "labels": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "required": [
+            "terminal",
+            "player",
+            "actions",
+            "labels"
+          ],
+          "additionalProperties": false
+        },
+        "pb": {
+          "type": "object",
+          "properties": {
+            "terminal": {
+              "const": false
+            },
+            "player": {
+              "enum": [
+                0,
+                1
+              ]
+            },
+            "actions": {
+              "const": [
+                "p",
+                "b"
+              ]
+            },
+            "labels": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "required": [
+            "terminal",
+            "player",
+            "actions",
+            "labels"
+          ],
+          "additionalProperties": false
+        },
+        "pp": {
+          "type": "object",
+          "properties": {
+            "terminal": {
+              "const": true
+            },
+            "payoffs": {
+              "type": "object",
+              "properties": {
+                "0,1": {
+                  "type": "number"
+                },
+                "0,2": {
+                  "type": "number"
+                },
+                "1,0": {
+                  "type": "number"
+                },
+                "1,2": {
+                  "type": "number"
+                },
+                "2,0": {
+                  "type": "number"
+                },
+                "2,1": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "0,1",
+                "0,2",
+                "1,0",
+                "1,2",
+                "2,0",
+                "2,1"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "terminal",
+            "payoffs"
+          ],
+          "additionalProperties": false
+        },
+        "bp": {
+          "type": "object",
+          "properties": {
+            "terminal": {
+              "const": true
+            },
+            "payoffs": {
+              "type": "object",
+              "properties": {
+                "0,1": {
+                  "type": "number"
+                },
+                "0,2": {
+                  "type": "number"
+                },
+                "1,0": {
+                  "type": "number"
+                },
+                "1,2": {
+                  "type": "number"
+                },
+                "2,0": {
+                  "type": "number"
+                },
+                "2,1": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "0,1",
+                "0,2",
+                "1,0",
+                "1,2",
+                "2,0",
+                "2,1"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "terminal",
+            "payoffs"
+          ],
+          "additionalProperties": false
+        },
+        "bb": {
+          "type": "object",
+          "properties": {
+            "terminal": {
+              "const": true
+            },
+            "payoffs": {
+              "type": "object",
+              "properties": {
+                "0,1": {
+                  "type": "number"
+                },
+                "0,2": {
+                  "type": "number"
+                },
+                "1,0": {
+                  "type": "number"
+                },
+                "1,2": {
+                  "type": "number"
+                },
+                "2,0": {
+                  "type": "number"
+                },
+                "2,1": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "0,1",
+                "0,2",
+                "1,0",
+                "1,2",
+                "2,0",
+                "2,1"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "terminal",
+            "payoffs"
+          ],
+          "additionalProperties": false
+        },
+        "pbp": {
+          "type": "object",
+          "properties": {
+            "terminal": {
+              "const": true
+            },
+            "payoffs": {
+              "type": "object",
+              "properties": {
+                "0,1": {
+                  "type": "number"
+                },
+                "0,2": {
+                  "type": "number"
+                },
+                "1,0": {
+                  "type": "number"
+                },
+                "1,2": {
+                  "type": "number"
+                },
+                "2,0": {
+                  "type": "number"
+                },
+                "2,1": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "0,1",
+                "0,2",
+                "1,0",
+                "1,2",
+                "2,0",
+                "2,1"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "terminal",
+            "payoffs"
+          ],
+          "additionalProperties": false
+        },
+        "pbb": {
+          "type": "object",
+          "properties": {
+            "terminal": {
+              "const": true
+            },
+            "payoffs": {
+              "type": "object",
+              "properties": {
+                "0,1": {
+                  "type": "number"
+                },
+                "0,2": {
+                  "type": "number"
+                },
+                "1,0": {
+                  "type": "number"
+                },
+                "1,2": {
+                  "type": "number"
+                },
+                "2,0": {
+                  "type": "number"
+                },
+                "2,1": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "0,1",
+                "0,2",
+                "1,0",
+                "1,2",
+                "2,0",
+                "2,1"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "terminal",
+            "payoffs"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "",
+        "p",
+        "b",
+        "pb",
+        "pp",
+        "bp",
+        "bb",
+        "pbp",
+        "pbb"
+      ],
+      "additionalProperties": false
+    },
+    "information_sets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "player": {
+            "enum": [
+              0,
+              1
+            ]
+          },
+          "card": {
+            "enum": [
+              0,
+              1,
+              2
+            ]
+          },
+          "history": {
+            "enum": [
+              "",
+              "p",
+              "b",
+              "pb"
+            ]
+          },
+          "probabilities": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "regrets": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "required": [
+          "player",
+          "card",
+          "history",
+          "probabilities",
+          "regrets"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 12,
+      "maxItems": 12,
+      "uniqueItems": true
+    },
+    "report": {
+      "type": "object",
+      "properties": {
+        "profile_value_player_zero": {
+          "type": "number"
+        },
+        "best_response_value_player_zero": {
+          "type": "number"
+        },
+        "best_response_value_player_one": {
+          "type": "number"
+        },
+        "nash_conv": {
+          "type": "number"
+        },
+        "exploitability": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "profile_value_player_zero",
+        "best_response_value_player_zero",
+        "best_response_value_player_one",
+        "nash_conv",
+        "exploitability"
+      ],
+      "additionalProperties": false
+    },
+    "always_bet_call_report": {
+      "type": "object",
+      "properties": {
+        "profile_value_player_zero": {
+          "type": "number"
+        },
+        "best_response_value_player_zero": {
+          "type": "number"
+        },
+        "best_response_value_player_one": {
+          "type": "number"
+        },
+        "nash_conv": {
+          "type": "number"
+        },
+        "exploitability": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "profile_value_player_zero",
+        "best_response_value_player_zero",
+        "best_response_value_player_one",
+        "nash_conv",
+        "exploitability"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "version",
+    "game",
+    "input_kind",
+    "algorithm",
+    "iterations",
+    "cards",
+    "deals",
+    "states",
+    "information_sets",
+    "report",
+    "always_bet_call_report"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

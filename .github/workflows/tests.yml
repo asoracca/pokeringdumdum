@@ -18,3 +18,15 @@ jobs:
       - run: python -m ruff format --check .
       - run: python -m ruff check .
       - run: python -m pytest -q
+      - run: python -m pokeringdumdum.export
+      - run: git diff --exit-code -- explorer/strategy.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: pnpm/action-setup@v4
+        with:
+          version: "11.19.0"
+      - run: pnpm --dir explorer install --frozen-lockfile
+      - run: pnpm --dir explorer build
+      - run: git diff --exit-code -- explorer/dist
+      - run: python -m pokeringdumdum.study
